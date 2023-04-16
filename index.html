@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <script defer src="predict.js" type="module"></script>
+    <title>Ford Dealer - Florida</title>
+</head>
+
+<body>
+    <header>
+        <div class="container logo">
+            <img src="./images/Ford_logo_flat.png">
+            <h1>Ford Dealer - Florida</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Predict a car</h2>
+        <label for="year">Year</label>
+        <input type="text" id="year" placeholder="E.g. 2023" />
+
+        <label for="transmission">Transmission</label>
+        <input type="text" id="transmission" placeholder="(Automatic: 2 | Semi-Auto: 1 | Manual: 0)" />
+
+        <label for="mileage">Milage</label>
+        <input type="text" id="mileage" placeholder="E.g. 12000" />
+        
+        <label for="fuelType">Fuel Type</label>
+        <input type="text" id="fuelType" placeholder="(Electric: 4 | Other: 3 | Petrol: 2 | Hybrid: 1 | Diesel: 0)" />
+
+        <label for="mpg">Miles per Gallon</label>
+        <input type="text" id="mpg" placeholder="E.g. 57.7" />
+
+        <label for="engineSize">Engine Size</label>
+        <input type="text" id="engineSize" placeholder="E.g. 1.6" />
+
+        <button id="predictBtn">Voorspel prijs</button>
+    </div>
+
+    <div class="container" id="result">
+        <span id="errorField"></span>
+    </div>
+</body>
+
+</html>
