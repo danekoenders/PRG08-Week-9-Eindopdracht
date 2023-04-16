@@ -24,27 +24,37 @@
     <div class="container">
         <h2>Predict the sales price of a car</h2>
         <label for="year">Production Year</label>
-        <input type="text" id="year" placeholder="E.g. 2023" />
+        <input type="number" id="year" placeholder="E.g. 2023" />
 
         <label for="transmission">Transmission</label>
-        <input type="text" id="transmission" placeholder="(Automatic: 2 | Semi-Auto: 1 | Manual: 0)" />
+        <select id="transmission">
+            <option value="2">Automatic</option>
+            <option value="1">Semi-Auto</option>
+            <option value="0">Manual</option>
+        </select>
 
         <label for="mileage">Current Milage</label>
-        <input type="text" id="mileage" placeholder="E.g. 12000" />
+        <input type="number" id="mileage" placeholder="E.g. 12000" />
         
         <label for="fuelType">Fuel Type</label>
-        <input type="text" id="fuelType" placeholder="(Electric: 4 | Other: 3 | Petrol: 2 | Hybrid: 1 | Diesel: 0)" />
+        <select id="fuelType">
+            <option value="2">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="0">Hybrid</option>
+            <option value="1">Electric</option>
+            <option value="0">Other</option>
+        </select>
 
         <label for="mpg">Miles per Gallon</label>
-        <input type="text" id="mpg" placeholder="E.g. 57.7" />
+        <input type="number" id="mpg" placeholder="E.g. 57.7" />
 
         <label for="engineSize">Engine Size (L)</label>
-        <input type="text" id="engineSize" placeholder="E.g. 1.6" />
+        <input type="number" id="engineSize" placeholder="E.g. 1.6" />
 
         <button id="predictBtn">Predict price</button>
     </div>
 
-    <div class="container result" id="result">
+    <div class="container" id="result">
         <span id="errorField"></span>
     </div>
 </body>

@@ -33,12 +33,14 @@ async function makePrediction() {
     if (isNaN(results[0].price)) {
         errorField.innerHTML = "Something went wrong. Please try again!"
     } else {
-        console.log(`Geschatte Verkoop Prijs: ${results[0].price}`)
+        console.log(`Predicted Price based on input: ${results[0].price}`)
         currencyTransformer(results[0].price);
     }
+
+    resultField.className += ' result';
 }
 
 function currencyTransformer(result) {
     const fmt = new Intl.NumberFormat('us-US', { style: 'currency', currency: 'USD' });
-    resultField.innerHTML = "Geschatte Verkoop Prijs: " + fmt.format(result);
+    resultField.innerHTML = "Predicted Price based on input: " + fmt.format(result);
 }
