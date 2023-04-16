@@ -17,6 +17,11 @@ header {
     align-items: center;
 }
 
+.result {
+    color: white;
+    background: #333;
+}
+
 .logo img {
     width: 150px;
     margin-bottom: 10px;
