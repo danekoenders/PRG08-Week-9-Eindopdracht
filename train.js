@@ -56,25 +56,24 @@ async function finishedTraining(nn, testData){
 
     saveBtn.addEventListener("click", function() {saveModel(nn)});
 
-    // makePrediction(nn, testData);
+    makePrediction(nn, testData);
 }
 
-// async function makePrediction(nn, testData) {
-//     console.log("Making prediction..")
-
-//     console.log(testData)
-//     const testCar = { year: testData[0].year, transmission: testData[0].transmission, mileage: testData[0].mileage }
-//     const results =  await nn.predict(testCar);
-//     console.log(`Geschatte Prijs: ${results[0].price}`)
-
-//     let predictions = []
-//     for (let i = 0; i < testData.length; i += 1) {
-//         const prediction = await nn.predict({ year: testData[i].year, transmission: testData[i].transmission, mileage: testData[i].mileage })
-//         predictions.push({x: testData[i].mileage, y: prediction[0].price})
-//     }
+async function makePrediction(nn, testData) {
+    console.log("Making prediction..")
     
-//     updateChart("Predictions", predictions)
-// }
+    const testCar = { year: testData[0].year, transmission: testData[0].transmission, mileage: testData[0].mileage, fuelType: testData[0].fuelType, mpg: testData[0].mpg, engineSize: testData[0].engineSize }
+    const results =  await nn.predict(testCar);
+    console.log(`Geschatte Prijs: ${results[0].price}`)
+
+    let predictions = []
+    for (let i = 0; i < testData.length; i += 1) {
+        const prediction = await nn.predict({ year: testData[i].year, transmission: testData[i].transmission, mileage: testData[i].mileage, fuelType: testData[i].fuelType, mpg: testData[i].mpg, engineSize: testData[i].engineSize })
+        predictions.push({x: testData[i].mileage, y: prediction[0].price})
+    }
+    
+    updateChart("Predictions", predictions)
+}
 
 function saveModel(nn) {
     nn.save()
